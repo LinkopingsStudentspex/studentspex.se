@@ -13,7 +13,13 @@ if ( ! $src ) {
 if ( ! $src ) {
 	return;
 }
-$img = sprintf( '<img src="%s" alt="%s" loading="lazy">', esc_url( $src ), esc_attr( $attributes['alt'] ) );
+$alt = trim( $attributes['alt'] );
+// A linked logo needs a text alternative, or the link has no accessible name.
+// Fall back to the sponsor's domain when no alt text has been entered.
+if ( '' === $alt && $attributes['link'] ) {
+	$alt = preg_replace( '/^www\./', '', (string) wp_parse_url( $attributes['link'], PHP_URL_HOST ) );
+}
+$img = sprintf( '<img src="%s" alt="%s" loading="lazy">', esc_url( $src ), esc_attr( $alt ) );
 if ( $attributes['link'] ) {
 	$img = sprintf( '<a href="%s" target="_blank" rel="noopener">%s</a>', esc_url( $attributes['link'] ), $img );
 }
