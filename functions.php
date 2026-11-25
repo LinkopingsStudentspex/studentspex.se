@@ -16,6 +16,7 @@ require STUDENTSPEX_DIR . '/inc/pattern-helpers.php';
 require STUDENTSPEX_DIR . '/inc/settings.php';
 require STUDENTSPEX_DIR . '/inc/cpt-uppsattning.php';
 require STUDENTSPEX_DIR . '/inc/blocks.php';
+require STUDENTSPEX_DIR . '/inc/seo.php';
 require STUDENTSPEX_DIR . '/inc/newsletter/newsletter.php';
 require STUDENTSPEX_DIR . '/inc/setup.php';
 
